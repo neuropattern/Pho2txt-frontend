@@ -1,0 +1,18 @@
+.header {
+    background: rgba($color: grey, $alpha: 0.3);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 10px;
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .description {
+        width: 100%;
+        text-align: left;
+        font-style: italic;
+        font-size: 13px;
+    }
+}

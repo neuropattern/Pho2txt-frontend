@@ -1,0 +1,111 @@
+.wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-direction: column;
+    margin-bottom: 10px;
+
+  	  .outputText {
+        width: 100%;
+		max-width: 291px;
+        font-size: 15px;
+        border: 1px solid black;
+        color: black;
+    }
+.imageInput {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+      input[type="file"] {
+         background: none;
+         cursor: pointer;
+         width: 100%;
+         max-width: 180px;
+		 border: 1px solid black;
+		 padding: 10px 0;
+         overflow: hidden;
+         color: black;
+         }
+          input[type="file"]:before {
+          color: black;
+          background: none;
+		  height: 100%;
+		  padding-left: 5px;
+          font-size: 13px;
+          border-radius: 5px;
+          content: "Image";
+          display: inline-block;
+          text-align: center;
+            }
+            input[type="file"]::-webkit-file-upload-button {
+            visibility: hidden;
+            }
+    .button {
+    display: flex;
+    margin-left: 10px;
+    overflow: hidden;
+    padding: 20px 12px;
+    border: 0 !important;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 150ms linear;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none !important;
+    text-transform: none;
+    text-transform: capitalize;
+    color: #fff;
+    border: 0 none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    appearance: none;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 160px;
+    box-shadow: 2px 5px 10px #e4e4e4;
+    background: #F06189;
+    &:hover {
+        transition: all 150ms linear;
+        opacity: .85;
+    }
+  }
+}
+
+}
+
+select{
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid black;
+    height: 30px;
+    overflow: hidden;
+    color: black;
+}
+
+.label {
+    margin: 10px 0 5px 0;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+}
+.upload {
+    background-color: #008000;
+    border: 1px solid #006400;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 35px;
+    input {
+        left: -9999px; 
+        position: absolute;
+    }
+}

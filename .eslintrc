@@ -26,15 +26,15 @@
     },
     "rules": {
         "linebreak-style": 0,
-        "arrow-body-style": ["error", "always"],
+        "arrow-body-style": ["warn", "always"],
         "max-len": [2, 120, 2, {
             "ignoreUrls": true,
             "ignoreComments": true
         }],
-        "no-multiple-empty-lines": ["error", {
+        "no-multiple-empty-lines": ["warn", {
             "max": 3
         }],
-        "indent": ["error", 2],
+        "indent": ["warn", 2],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "no-const-assign": "warn",
         "no-this-before-super": "warn",

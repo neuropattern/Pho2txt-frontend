@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {
+  ImageInput,
+  Header,
+  Footer,
+} from 'components';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <p>Hello world</p>
-      </div>
+      <Fragment>
+        <Header />
+        <ImageInput />
+        <Footer />
+      </Fragment>
     );
   }
 }
