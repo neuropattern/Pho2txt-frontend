@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-  // Button,
   Input,
 } from 'components';
+import { withRouter } from "react-router";
 import axios from 'axios';
 import { Lion as Button } from 'react-button-loaders';
 import AWS from 'aws-sdk';
@@ -29,11 +29,13 @@ class ImageInput extends Component {
       type: 'custom',
       image: {},
       isLoading: false,
+      response: "",
     };
 
     this.onClick = this.onClick.bind(this);
     this.onImageChange = this.onImageChange.bind(this);
     this.onTypeChange = this.onTypeChange.bind(this);
+    this.downloadTxtFile = this.downloadTxtFile.bind(this);
   }
 
   onClick() {
@@ -59,7 +61,8 @@ class ImageInput extends Component {
       })
         .then((response) => {
           this.setState({ isLoading: 'finished' });
-          return this.setState({ name: response });
+          console.log(response)
+          return this.setState({ response: response.data });
         })
         .catch((error) => { return console.log(error); });
     }
@@ -76,11 +79,22 @@ class ImageInput extends Component {
     this.setState({ type: event.target.value });
   }
 
+  downloadTxtFile () {
+    const element = document.createElement("a");
+    const file = new Blob([document.getElementById('text').value], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "myFile.txt";
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+  }
+
   onImageChange(event) {
     this.setState({ image: event.target.files[0] });
   }
 
   render() {
+    const { response } = this.state;
+
     return (
       <div className={styles.wrap}>
         <label className={styles.label}>Service type</label>
@@ -97,14 +111,6 @@ class ImageInput extends Component {
             />
             {'Upload'}
           </label>
-          {/* <Input
-            accept="image/*"
-            onChange={this.onImageChange}
-            className={styles.input}
-            required
-            placeholder="Click to upload"
-            type="file"
-          /> */}
           <Button
             type="button"
             onClick={this.onClick}
@@ -115,11 +121,28 @@ class ImageInput extends Component {
             {'Send'}
           </Button>
         </form>
+        <Button
+         type="button"
+        //  onClick={this.downloadTxtFile}
+         onClick={()=>window.location.assign('http://localhost:3000')}
+         className={styles.fullVersion}
+        >
+          {'Open full version'}
+        </Button>
         <textarea
+          id="text"
+          value={response}
           rows="5"
           placeholder="Output text"
           className={styles.outputText}
         />
+        <Button
+         type="button"
+         onClick={response && this.downloadTxtFile}
+         className={styles.donwload}
+        >
+          {'Download file'}
+        </Button>
       </div>
     );
   }
